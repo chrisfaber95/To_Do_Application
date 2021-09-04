@@ -1,0 +1,30 @@
+:root {
+    --app-background-color: #FFFFFF;
+    --dynamic-title-color: #363636;
+    --dynamic-subtitle-color: #4a4a4a;
+	--text-color: #333333;
+	--item-block-background-color: #FFFFFF;
+}
+
+[theme="dark"] {
+    --app-background-color: #353a3d;
+    --dynamic-title-color: #FFFFFF;
+    --dynamic-subtitle-color: cyan;
+	--item-block-text-color: #FAFAFA;
+	--item-block-background-color: #999999;
+	--app-header-background-color: #5767e5;
+	--modal-background-color: #999999;
+	--header-text-color: #FFFFFF;
+}
+
+[theme="light"] {
+    --app-background-color: #FFFFFF;
+    --dynamic-title-color: #363636;
+    --dynamic-subtitle-color: #4a4a4a;
+	--text-color: #333333;
+	--item-block-text-color: #333333;
+	--item-block-background-color: #FFFFFF;
+	--app-header-background-color: #5767e5;
+	--header-text-color: #FFFFFF;
+	--modal-background-color: #FFFFFF;
+}

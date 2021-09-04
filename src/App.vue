@@ -1,18 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+	<TodoList />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TodoList from './components/TodoList.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+	name: 'App',
+	components: {
+		TodoList
+	},
+	mounted() {
+		if(localStorage.getItem('theme')){
+			this.$store.commit('reloadTheme')
+		}
+		document.body.classList.add("app-background");
+	},
+	watch:{
+		'$store.state.theme':{
+			immediate: true,
+			handler(){
+				document.documentElement.setAttribute('theme', this.$store.state.theme)
+			}
+		}
+	}
 }
 </script>
 
@@ -22,7 +35,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
