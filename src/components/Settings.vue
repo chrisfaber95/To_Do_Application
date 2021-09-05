@@ -12,11 +12,17 @@
 			<div class="block">
 				<h2>Theme</h2>
 				<hr/>
-				<h3>Dark Mode</h3>
+				<!--<h3>Dark Mode</h3>
 					<label class="switch">
 					  <input type="checkbox" v-model="theme" true-value="dark" false-value="light" v-on:change="changeTheme()">
 					  <span class="slider round"></span>
-					</label>
+					</label>-->
+					<h3>Light Mode</h3>
+						<input type="radio" v-model="theme" value="light" v-on:change="changeTheme()">
+					<h3>Dark Mode</h3>					
+						<input type="radio" v-model="theme" value="dark" v-on:change="changeTheme()">
+					<h3>Whiteboard</h3>					
+						<input type="radio" v-model="theme" value="whiteboard" v-on:change="changeTheme()">
 				</hr>
 			</div>
 		</div>

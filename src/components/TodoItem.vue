@@ -1,8 +1,10 @@
 <template>
   <div class="card">
-	<h1>{{info.title}}</h1>
-	<p>{{formatDate(info.date)}}</p>
-	<p v-if="info.text" v-html="unescape(newline(info.text))"></p>
+	<div class="content">
+		<h1>{{info.title}}</h1>
+		<p>{{formatDate(info.date)}}</p>
+		<p v-if="info.text" v-html="unescape(newline(info.text))"></p>
+	</div>
 	<div class="buttons">
 		<select v-model="cardinfo.status">
 			<option v-for="option in status" v-bind:value="option.id">
@@ -16,6 +18,7 @@
 
 <script>
 import moment from 'moment'
+import $ from 'jquery'
 export default {
   name: 'TodoCard',
   props: {
@@ -53,12 +56,17 @@ export default {
 		},
 		formatDate(date){
 			return moment(date).format('MMMM Do YYYY, HH:mm')
+		},
+		postitsize(){
+			var cw = $('.card').width()*1.2;
+			$('.card').css({'height':cw+'px'});
 		}
 	},
 	created(){
 	},
 	mounted(){
 		this.getCard(this.listitem)
+		this.postitsize()
 	},
 	computed: {
 		info(){
@@ -85,6 +93,8 @@ export default {
 	border: 1px solid var(--item-block-text-color);
 	margin: 10px;
 	box-shadow: 0 5px 5px 0 #00000099, 0 1px 10px 0 #00000099;
+	display: flex;
+    justify-content: space-between;
 }
 .card .buttons select, button{
 	width: 40%;
@@ -95,5 +105,29 @@ export default {
     padding-left: 5px;
     padding-right: 5px;
 	margin: 5px;
+}
+.card:hover{
+	background-color: var(--item-block-hover-background-color);
+	cursor:pointer;
+}
+.content{
+	overflow: scroll;
+	max-height: 90%;
+	scrollbar-width: none;
+}
+.content::-webkit-scrollbar{
+	display: none;	
+}
+[theme="whiteboard"] {
+	.card{
+		background-color: #feff9c;
+		color: var(--item-block-text-color);
+		border: unset;
+		margin: 10px;
+		box-shadow: 0 5px 5px 0 #00000099, 0 1px 10px 0 #00000099;
+	}
+	.card:hover{
+		background-color: #edee8b;
+	}
 }
 </style>

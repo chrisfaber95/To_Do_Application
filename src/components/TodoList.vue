@@ -158,7 +158,6 @@ header{
 }
 header .modalbutton h1{
 	height: 100%;
-	max-height: 5vh;
 	border: 1px solid #000000;
 	background-color: #4350b2;
     color: var(--header-text-color);
@@ -171,6 +170,10 @@ header .modalbutton h1{
 .content{
 	overflow-y: scroll;
 	max-height: 95vh;
+	scrollbar-width: none;
+}
+.content::-webkit-scrollbar{
+	display: none;	
 }
 .status{
 	display: flex;
